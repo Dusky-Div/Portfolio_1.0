@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -118,6 +117,78 @@
     @apply bg-background text-foreground;
   }
 }
+html {
+  /* This sets ONLY the overscroll background */
+  background-color: #030303;
+}
+
+body {
+  /* Keep body transparent so your components show through */
+  background: transparent;
+  margin: 0;
+  padding: 0;
+}
 .font-pacifico {
   font-family: "Pacifico", cursive;
+}
+@font-face {
+  font-family: "CovesBold";
+  src: url("./assets/fonts/Coves/CovesBold.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "CovesLight";
+  src: url("./assets/fonts/Coves/CovesLight.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@theme {
+  --font-family-covesBold: "CovesBold", sans-serif;
+  --font-family-covesLight: "CovesLight", sans-serif;
+}
+
+@font-face {
+  font-family: "RecoletaThin";
+  src: url("./assets/fonts/Recoleta/RecoletaThin.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "RecoletaLight";
+  src: url("./assets/fonts/Recoleta/RecoletaLight.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "RecoletaRegular";
+  src: url("./assets/fonts/Recoleta/RecoletaRegular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "RecoletaMedium";
+  src: url("./assets/fonts/Recoleta/RecoletaMedium.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "RecoletaSemibold";
+  src: url("./assets/fonts/Recoleta/RecoletaSemiBold.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "RecoletaBold";
+  src: url("./assets/fonts/Recoleta/RecoletaBold.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@theme {
+  --font-family-recoletaThin: "RecoletaThin", sans-serif;
+  --font-family-recoletaLight: "RecoletaLight", sans-serif;
+  --font-family-recoletaRegular: "RecoletaRegular", sans-serif;
+  --font-family-recoletaMedium: "RecoletaMedium", sans-serif;
+  --font-family-recoletaSemibold: "RecoletaSemibold", sans-serif;
+  --font-family-recoletaBold: "RecoletaBold", sans-serif;
 }
