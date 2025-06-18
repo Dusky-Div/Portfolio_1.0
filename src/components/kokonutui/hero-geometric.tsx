@@ -89,7 +89,7 @@ function WakandaLetter({
         style={{
           fontSize: `${size}px`,
         }}
-        className="text-gray-400 font-bold drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]"
+        className="text-gray-200 font-bold drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]"
       >
         {symbol}
       </motion.div>
