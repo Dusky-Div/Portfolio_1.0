@@ -1,5 +1,6 @@
 // TechStack.tsx
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import TechIcon from "./TechIcon";
 
 // Import all SVGs
@@ -23,6 +24,9 @@ interface TechItem {
 }
 
 const TechStack: React.FC = () => {
+  const ref = useRef<HTMLParagraphElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
   const techIcons: TechItem[] = [
     { name: "React", svgPath: reactIcon },
     { name: "TypeScript", svgPath: typescriptIcon },
@@ -40,11 +44,27 @@ const TechStack: React.FC = () => {
 
   return (
     <div className="flex flex-col relative justify-center items-center gap-6 h-screen w-full bg-transparent px-32 z-10">
-      <div className="flex flex-col items-center gap-10 mt-20 h-fit w-1/2 text-white shadow-6xl">
-        <p className="font-family-recoletaRegular text-6xl">
-          Tech I work upon<span className="text-[#9d79d4]">...</span>
-        </p>
-        <div className="flex flex-wrap gap-4 justify-center">
+      <div className="flex flex-col items-center gap-10 mt-20 h-fit w-fit text-white shadow-6xl">
+        <motion.p
+          ref={ref}
+          className="font-family-recoletaRegular text-6xl"
+          initial={{ opacity: 0, filter: "blur(8px)" }}
+          animate={
+            isInView
+              ? { opacity: 1, filter: "blur(0px)" }
+              : { opacity: 0, filter: "blur(8px)" }
+          }
+          transition={{
+            duration: 0.6,
+            ease: "easeOut",
+          }}
+        >
+          <span className="bg-gradient-to-r from-purple-400 via-purple-500 to-violet-700 bg-clip-text text-transparent">
+            Tech Stack
+          </span>{" "}
+          I work upon
+        </motion.p>
+        <div className="flex flex-wrap gap-4 w-7/12 justify-center">
           {techIcons.map((tech, index) => (
             <TechIcon
               key={index}

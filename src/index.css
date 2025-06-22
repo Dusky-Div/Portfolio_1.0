@@ -118,12 +118,10 @@
   }
 }
 html {
-  /* This sets ONLY the overscroll background */
   background-color: #030303;
 }
 
 body {
-  /* Keep body transparent so your components show through */
   background: transparent;
   margin: 0;
   padding: 0;
@@ -191,4 +189,41 @@ body {
   --font-family-recoletaMedium: "RecoletaMedium", sans-serif;
   --font-family-recoletaSemibold: "RecoletaSemibold", sans-serif;
   --font-family-recoletaBold: "RecoletaBold", sans-serif;
+}
+
+@layer utilities {
+  .font-manrope-extralight {
+    font-family: "Manrope", sans-serif;
+    font-weight: 200;
+  }
+
+  .font-manrope-light {
+    font-family: "Manrope", sans-serif;
+    font-weight: 300;
+  }
+
+  .font-manrope-regular {
+    font-family: "Manrope", sans-serif;
+    font-weight: 400;
+  }
+
+  .font-manrope-medium {
+    font-family: "Manrope", sans-serif;
+    font-weight: 500;
+  }
+
+  .font-manrope-semibold {
+    font-family: "Manrope", sans-serif;
+    font-weight: 600;
+  }
+
+  .font-manrope-bold {
+    font-family: "Manrope", sans-serif;
+    font-weight: 700;
+  }
+
+  .font-manrope-extrabold {
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+  }
 }

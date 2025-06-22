@@ -1,9 +1,16 @@
 import { useState, useEffect } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Navlink from "./Navlink";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+
+  const { scrollYProgress } = useScroll();
+  const progressWidth = useSpring(
+    useTransform(scrollYProgress, [0, 1], ["0%", "100%"]),
+    { stiffness: 400, damping: 40, mass: 0.8 }
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,7 +19,6 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-
     setIsLoaded(true);
 
     return () => window.removeEventListener("scroll", handleScroll);
@@ -26,13 +32,20 @@ const Navbar = () => {
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      {/* <button
-        className={`font-family-covesLight font-bold tracking-widest hover:text-[#c4b0ff] cursor-pointer text-2xl transition-all duration-1000 ease-out ${
-          isLoaded ? "blur-none opacity-100" : "blur-md opacity-0"
-        }`}
-      >
-        Divyansh Yaduvanshi
-      </button> */}
+      {/* Scroll Progress Border */}
+      <motion.div
+        className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-indigo-600 via-violet-700 to-purple-800"
+        style={{ width: progressWidth }}
+        initial={{ width: "0%" }}
+      />
+
+      {/* Optional: Glow effect */}
+      <motion.div
+        className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-indigo-500 via-violet-600 to-purple-700 blur-sm opacity-60"
+        style={{ width: progressWidth }}
+        initial={{ width: "0%" }}
+      />
+
       <div
         className={`flex gap-8 transition-all duration-1000 ease-out ${
           isLoaded ? "blur-none opacity-100" : "blur-md opacity-0"
